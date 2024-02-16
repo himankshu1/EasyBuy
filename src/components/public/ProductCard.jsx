@@ -2,7 +2,7 @@ import Cart from "../../assets/Icons/Cart";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="flex flex-col gap-2 bg-gray-100 px-4 py-5 hover:scale-105 transition-transform duration-300">
+    <div className="flex flex-col gap-2 bg-gray-100 px-4 py-5 hover:scale-105 transition-transform duration-300 rounded-sm">
       <div className="w-48 h-48 self-center">
         <img
           src={product?.image?.url}

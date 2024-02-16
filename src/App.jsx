@@ -13,6 +13,8 @@ import DailyNeeds from "./components/public/NavitemsPages/DailyNeeds";
 import Profile from "./components/public/NavitemsPages/Profile";
 import Wishlist from "./components/public/NavitemsPages/Wishlist";
 import Cart from "./components/public/NavitemsPages/Cart";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -54,10 +56,15 @@ const App = () => {
     },
   ]);
 
+  const queryClient = new QueryClient();
+
   return (
-    <RouterProvider router={router}>
-      <Landing />
-    </RouterProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}>
+        <Landing />
+      </RouterProvider>
+      <ReactQueryDevtools initialIsOpen={true} />
+    </QueryClientProvider>
   );
 };
 
