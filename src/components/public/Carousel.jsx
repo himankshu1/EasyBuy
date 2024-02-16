@@ -22,7 +22,7 @@ const Carousel = () => {
   return (
     <Slider {...settings}>
       {carousel_images.map((item, index) => (
-        <div key={index} className="py-10">
+        <div key={index} className="py-5">
           <img src={item} alt={item} />
         </div>
       ))}
