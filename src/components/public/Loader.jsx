@@ -2,7 +2,7 @@ import { Oval } from "react-loader-spinner";
 
 const Loader = () => {
   return (
-    <div className="w-full flex items-center justify-center">
+    <div className="w-full flex items-center justify-center top-28 absolute">
       <Oval
         visible={true}
         height="60"

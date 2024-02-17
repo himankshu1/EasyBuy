@@ -4,12 +4,12 @@ import { commerce } from "../../lib/commerce";
 import ProductCard from "./ProductCard";
 import Loader from "./Loader";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 function Landing() {
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
+    console.log(data);
     return data;
   };
 
@@ -17,11 +17,18 @@ function Landing() {
     isLoading,
     error,
     data: products,
-  } = useQuery({ queryKey: ["products"], queryFn: fetchProducts });
+  } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+    staleTime: 10000,
+  });
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
   return (
     <div className="antialiased">
-      <Navbar />
       <Carousel />
 
       <div className="flex flex-wrap gap-5 mt-16 px-7">
@@ -30,17 +37,13 @@ function Landing() {
         </h1>
 
         {products && !isLoading ? (
-          products.map((product, index) => (
-            <Link key={index}>
-              <ProductCard product={product} key={index} />
-            </Link>
+          products.map((product) => (
+            <ProductCard product={product} key={product.id} />
           ))
         ) : (
           <Loader />
         )}
       </div>
-
-      <Footer />
     </div>
   );
 }
