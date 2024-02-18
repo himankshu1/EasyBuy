@@ -1,11 +1,12 @@
 import Bag from "../../assets/Icons/Bag";
-import Cart from "../../assets/Icons/Cart";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  // console.log(relatedProducts);
+
   return (
     <Link to={`/product/${product.id}`}>
-      <div className="flex flex-col gap-2 bg-gray-100 px-4 py-5 hover:scale-105 transition-transform duration-300 rounded-sm">
+      <div className="flex flex-col gap-2 bg-gray-200 px-4 py-5 hover:scale-105 transition-transform duration-300 rounded-sm">
         <div className="w-48 h-48 self-center">
           <img
             src={product?.image?.url}

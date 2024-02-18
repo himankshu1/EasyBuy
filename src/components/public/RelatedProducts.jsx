@@ -1,7 +1,13 @@
-import React from "react";
+import ProductCard from "./ProductCard";
 
-const RelatedProducts = () => {
-  return <div className="text-center block">RelatedProducts</div>;
+const RelatedProducts = ({ relatedProducts }) => {
+  return (
+    <div className="flex gap-5">
+      {relatedProducts.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
 };
 
 export default RelatedProducts;

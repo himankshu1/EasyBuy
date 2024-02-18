@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartIcon from "../utils/CartIcon";
 import ProfileIcon from "../utils/ProfileIcon";
 import WishlistIcon from "../utils/WishlistIcon";
@@ -8,7 +9,9 @@ import SearchBar from "./SearchBar";
 function Navbar() {
   return (
     <div className="flex items-center justify-between px-10 py-5 shadow-md text-gray-600 antialiased">
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
       <Navitems />
       <SearchBar />
 
