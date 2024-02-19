@@ -1,32 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { commerce } from "../../lib/commerce";
-import { useQuery } from "@tanstack/react-query";
 import Loader from "./Loader";
-import Cart from "../../assets/Icons/Cart";
 import Bag from "../../assets/Icons/Bag";
 import Wishlist from "../../assets/Icons/Wishlist";
 import Star from "../../assets/Icons/Star";
 import RelatedProducts from "./RelatedProducts";
+import { useProductDetails } from "../utils/hooks";
 
 const ProductDetails = () => {
   const { id } = useParams();
-
-  const fetchProductDetailsById = async () => {
-    const product = await commerce.products.retrieve(id);
-    return product;
-  };
-
-  const {
-    isLoading,
-    error,
-    data: productDetails,
-  } = useQuery({
-    queryKey: ["product details", id],
-    queryFn: fetchProductDetailsById,
-  });
-
-  console.log(productDetails);
+  const { isLoading, productDetails } = useProductDetails(id);
 
   if (isLoading) {
     return <Loader />;

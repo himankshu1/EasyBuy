@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import CartIcon from "../utils/CartIcon";
-import ProfileIcon from "../utils/ProfileIcon";
-import WishlistIcon from "../utils/WishlistIcon";
+import CartIcon from "../../assets/Icons/CartIcon";
+import ProfileIcon from "../../assets/Icons/ProfileIcon";
+import WishlistIcon from "../../assets/Icons/WishlistIcon";
 import Logo from "./Logo";
 import Navitems from "./Navitems";
 import SearchBar from "./SearchBar";
